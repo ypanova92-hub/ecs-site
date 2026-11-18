@@ -33,7 +33,7 @@
     // hero
     'Students working together around laptops': 'סטודנטים עובדים יחד מול מחשבים ניידים',
     'Entrepreneurship Club · Sapir College': 'מועדון היזמות · מכללת ספיר',
-    'Take your first step into entrepreneurship': 'הצעד הראשון שלך בעולם היזמות',
+    'Take your first step into entrepreneurship': 'הצעד הראשון שלכם בעולם היזמות',
     'Dec': 'דצמ׳',
     'Jan': 'ינו׳',
     'Registration open': 'ההרשמה פתוחה',
@@ -47,7 +47,7 @@
     'Scroll': 'גללו',
 
     // about
-    'What you’ll find at ECS': 'מה מחכה לך ב־ECS',
+    'What you’ll find at ECS': 'מה מחכה לכם ב־ECS',
     'A community for Sapir College students who want to': 'קהילה לסטודנטים במכללת ספיר שרוצים',
     'explore entrepreneurship together': 'להכיר יחד את עולם היזמות',
     '— whether you arrive with an idea or just with curiosity.': '— בין אם הגעתם עם רעיון ובין אם רק מסקרנות.',
@@ -80,7 +80,7 @@
     'Not sure where you fit?': 'לא בטוחים מה מתאים לכם?',
     'Come to one open event. No commitment, no experience needed.': 'בואו לאירוע פתוח אחד. בלי התחייבות ובלי צורך בניסיון.',
     '“I came with zero ideas and left with two people I now build with.”':
-      '“הגעתי בלי אף רעיון ויצאתי עם שני אנשים שאני בונה איתם היום.”',
+      '"הגעתי בלי אף רעיון ויצאתי עם שני אנשים שאני בונה איתם היום."',
     'Amit R. · Economics, 2nd year': 'עמית ר. · כלכלה, שנה ב׳',
 
     // formats
@@ -109,7 +109,7 @@
     'Pitch nights': 'ערבי הצגת מיזמים',
     'Feedback': 'משוב',
     'Mentors': 'מנטורים',
-    'Your idea on stage': 'הרעיון שלך על הבמה',
+    'Your idea on stage': 'הרעיון שלכם על הבמה',
     'Share an idea in a few minutes and get honest, friendly feedback from students and mentors.':
       'הציגו רעיון בכמה דקות וקבלו משוב כן וידידותי מסטודנטים וממנטורים.',
     'Team projects': 'פרויקטים בצוות',
@@ -128,10 +128,10 @@
     'Club Chair · Industrial Management': 'יו״ר המועדון · ניהול תעשייה',
     'Portrait of Daniel Cohen': 'דיוקן של דניאל כהן',
     'Daniel Cohen': 'דניאל כהן',
-    'Events Lead · Economics': 'אחריות על אירועים · כלכלה',
+    'Events Lead · Economics': 'רכז אירועים · כלכלה',
     'Portrait of Maya Ben-David': 'דיוקן של מאיה בן־דוד',
     'Maya Ben-David': 'מאיה בן־דוד',
-    'Partnerships Lead · Public Policy': 'אחריות על שותפויות · מדיניות ציבורית',
+    'Partnerships Lead · Public Policy': 'רכזת שותפויות · מדיניות ציבורית',
     'Portrait of Yonatan Peretz': 'דיוקן של יונתן פרץ',
     'Yonatan Peretz': 'יונתן פרץ',
     'Community & Media · Communication': 'קהילה ומדיה · תקשורת',
@@ -140,7 +140,7 @@
     'Idea → Team → Launch': 'רעיון ← צוות ← השקה',
     'Build with people': 'לבנות עם אנשים',
     'Curiosity is enough': 'מספיק להיות סקרנים',
-    'Your first step starts here': 'הצעד הראשון שלך מתחיל כאן',
+    'Your first step starts here': 'הצעד הראשון שלכם מתחיל כאן',
     'Sapir College students': 'סטודנטים וסטודנטיות בספיר',
     'Meet. Learn. Build.': 'להכיר. ללמוד. לבנות.',
     'Join the community': 'הצטרפו לקהילה',
@@ -168,7 +168,7 @@
     'Date to be confirmed': 'התאריך ייקבע בהמשך',
     'Book Week event': 'אירוע שבוע הספר',
     'A regional collaboration around practical knowledge and entrepreneurship.': 'שיתוף פעולה אזורי סביב ידע מעשי ויזמות.',
-    'Date and registration to be confirmed': 'התאריך וההרשמה טרם אושרו',
+    'Date and registration to be confirmed': 'התאריך ופרטי ההרשמה ייקבעו בהמשך',
     'Registration opens soon': 'ההרשמה תיפתח בקרוב',
     'Idea Validation Workshop': 'סדנת בדיקת רעיונות',
     'Learn how to test an idea with real people in 90 minutes. No experience needed.':
@@ -176,7 +176,8 @@
     '14 January · 17:30': '14 בינואר · 17:30',
     'Sapir College · Innovation Lab': 'מכללת ספיר · מעבדת החדשנות',
     'All Sapir College students': 'כל הסטודנטים והסטודנטיות בספיר',
-    'Calendar file downloaded': 'קובץ היומן הורד',
+    'ECS · Entrepreneurship dinner': 'ECS · ערב יזמות',
+    'Sapir College': 'מכללת ספיר',
 
     // projects
     'Student projects': 'מיזמי סטודנטים',
@@ -184,8 +185,8 @@
     'a real project': 'לפרויקט אמיתי',
     'See how a first conversation can turn into a pilot, a prototype or a paid project.':
       'כך שיחה ראשונה יכולה להפוך לפיילוט, לאב־טיפוס או לפרויקט בתשלום.',
-    'Stacked textbooks': 'מדפי ספרים בספרייה',
-    'Campus pilot launched': 'הפיילוט הושק בקמפוס',
+    'Stacked textbooks': 'ערימת ספרי לימוד',
+    'Campus pilot launched': 'פיילוט הושק בקמפוס',
     'Campus Book Swap': 'החלפת ספרי לימוד בקמפוס',
     'Two students met at an ECS workshop and turned an idea for swapping textbooks into a pilot service on campus.':
       'שני סטודנטים נפגשו בסדנה של ECS והפכו רעיון להחלפת ספרי לימוד לשירות ניסיוני בקמפוס.',
@@ -228,7 +229,7 @@
     'Team Project Sprint': 'ספרינט של פרויקט צוותי',
     'Book Week': 'שבוע הספר',
     'End-of-semester Meetup': 'מפגש סוף סמסטר',
-    'Your photo could be next': 'התמונה הבאה יכולה להיות שלך',
+    'Your photo could be next': 'התמונה הבאה יכולה להיות שלכם',
     'Come to an event and meet the community.': 'בואו לאירוע ותכירו את הקהילה.',
 
     // faq
@@ -242,7 +243,7 @@
       'בכרטיס האירוע יש פרטים על תנאי ההשתתפות וההרשמה. כשההרשמה פתוחה, מופיע כפתור ייעודי לאירוע.',
     'What happens after I send the form?': 'מה קורה אחרי שליחת הטופס?',
     'After a successful submission, you’ll be directed to the ECS community invitation in WhatsApp.':
-      'לאחר שליחה מוצלחת תופיע הזמנה לקהילת ECS בוואטסאפ.',
+      'אחרי שליחת הטופס תועברו להזמנה לקהילת ECS בוואטסאפ.',
 
     // join
     'Membership': 'הצטרפות למועדון',
@@ -264,7 +265,7 @@
     'e.g. Dana Levi': 'לדוגמה: דנה לוי',
     'Select year': 'בחירת שנה',
     'We use your details only to add you to the ECS community. We never share them with third parties.':
-      'נשתמש בפרטים רק כדי לצרף אתכם לקהילת ECS. לעולם לא נעביר אותם לצד שלישי.',
+      'נשתמש בפרטים רק כדי לצרף אתכם לקהילת ECS. לא נעביר אותם לצדדים שלישיים.',
     'Submit and Continue': 'שליחה והמשך',
     'Sending…': 'שולחים…',
     'Next: the ECS WhatsApp community opens.': 'בשלב הבא תיפתח קהילת ECS בוואטסאפ.',
@@ -272,14 +273,14 @@
     'Your details are saved. Open the invitation to join the ECS WhatsApp community.':
       'הפרטים נשמרו. פתחו את ההזמנה כדי להצטרף לקהילת ECS בוואטסאפ.',
     'Open WhatsApp invitation': 'פתיחת ההזמנה בוואטסאפ',
-    'Didn’t open? Use the button above. It works any time.': 'לא נפתח? השתמשו בכפתור שלמעלה. הוא עובד בכל זמן.',
+    'Didn’t open? Use the button above. It works any time.': 'לא נפתח? אפשר ללחוץ על הכפתור שלמעלה בכל עת.',
     'Enter your full name.': 'נא להזין שם מלא.',
     'Enter a mobile number like 050-123-4567.': 'נא להזין מספר נייד, למשל 050-123-4567.',
 
     // partners
     'Partners & sponsors': 'שותפים ונותני חסות',
-    'Build the': 'בואו לבנות',
-    'next founders': 'את היזמים הבאים',
+    'Build the': 'בואו לגדל',
+    'next founders': 'את דור היזמים הבא',
     'with us': 'איתנו',
     'Support a workshop, mentor a student team or help bring an event to campus.':
       'אפשר לתמוך בסדנה, ללוות צוות סטודנטים או לסייע בקיום אירוע בקמפוס.',
@@ -362,7 +363,7 @@
       try {
         sessionStorage.setItem(STATE, JSON.stringify(state));
         sessionStorage.setItem('ecs-intro', '1');
-        localStorage.setItem('ecs-lang', btn.dataset.lang);
+        sessionStorage.setItem('ecs-lang', btn.dataset.lang);
       } catch (e) {}
       const url = new URL(location.href);
       url.searchParams.delete('lang');
