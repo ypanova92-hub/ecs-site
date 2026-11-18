@@ -130,6 +130,12 @@
     });
   }
 
+  /* ---------- photo cards: how far the text block rests below its open position ---------- */
+  const xMore = $$('.xcard__more');
+  const measureMore = () => xMore.forEach(m => m.closest('.xcard').style.setProperty('--more', `${m.offsetHeight + 12}px`));
+  if ('ResizeObserver' in window) { const ro = new ResizeObserver(measureMore); xMore.forEach(m => ro.observe(m)); }
+  measureMore();
+
   /* ---------- reveal on scroll ---------- */
   // Calm fade-up for section heads and repeated items that don't opt in themselves.
   $$('.section .head, .impact .head, .formats__aside, .format, .faq__grid > *, .stat, .join__grid > *, .partners .head, .footer__top > *')
