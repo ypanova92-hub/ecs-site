@@ -349,9 +349,9 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
   padding: clamp(96px, 14vh, 140px) clamp(24px, 4vw, 72px) clamp(48px, 8vh, 88px) max(var(--gutter), (100vw - var(--max)) / 2); }
 .journey-sec .eyebrow { color: var(--forest); }
 .journey__title { font-size: var(--fs-h2); font-weight: 650; letter-spacing: -.045em; line-height: 1.02; max-width: 14ch; }
-.journey__levels { display: grid; border-top: 1px solid rgba(16, 20, 23, .18); max-width: 560px; }
-.level { border-bottom: 1px solid rgba(16, 20, 23, .18); position: relative; border-radius: var(--r-lg); transition: background-color .4s var(--ease), color .4s var(--ease); }
-.level.is-open { background: var(--forest); color: #fff; border-bottom-color: transparent; }
+.journey__levels { display: grid; max-width: 560px; }
+.level { position: relative; border-radius: var(--r-lg); transition: background-color .4s var(--ease), color .4s var(--ease); }
+.level.is-open { background: var(--forest); color: #fff; }
 .level h3 { margin: 0; }
 .level__btn { width: 100%; min-height: 60px; padding: 16px 0; border: 0; background: none; text-align: start; font: inherit; font-size: clamp(1.15rem, 1rem + .5vw, 1.45rem); font-weight: 650; letter-spacing: -.01em;
   color: rgba(16, 20, 23, .45); cursor: pointer; transition: color .3s, padding .45s var(--ease); }
