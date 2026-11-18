@@ -313,13 +313,18 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
 /* about */
 .about .statement { margin-bottom: clamp(56px, 7vw, 112px); }
 /* expanding photo cards (About + Projects): hovered card grows, siblings shrink */
-.xcards { display: flex; gap: clamp(12px, 1.4vw, 20px); height: clamp(440px, 64vh, 640px);
+.xcards { --gap: clamp(12px, 1.4vw, 20px); --xease: cubic-bezier(.45, .05, .2, 1); display: flex; gap: var(--gap); height: clamp(440px, 64vh, 640px);
+  container-type: inline-size;
   /* wider than the 1280px text grid: break out to up to 1600px, centred */
   width: min(1600px, 100vw - 2 * var(--gutter)); margin-inline: calc((100% - min(1600px, 100vw - 2 * var(--gutter))) / 2); }
 .xcard { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; border-radius: var(--r-lg); background: var(--forest); color: #fff; outline-offset: 4px;
-  transition: flex-grow .8s var(--ease); isolation: isolate; }
+  transition: flex-grow 1s var(--xease); isolation: isolate; }
 .xcard__img { position: absolute; inset: 0; overflow: hidden; }
 .xcard__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1)); transition: transform .2s linear; }
+/* the photo keeps the width of an expanded card, so it is only revealed/cropped while the card resizes, never re-scaled */
+@media (hover: hover) and (min-width: 901px) {
+  .xcard__img img { left: 50%; right: auto; width: calc((100cqw - 2 * var(--gap)) * .58); max-width: none; transform: translateX(-50%) scale(var(--z, 1)); }
+}
 .xcard::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(to top, rgba(7, 32, 26, .92) 0%, rgba(7, 32, 26, .55) 32%, rgba(7, 32, 26, 0) 62%); transition: opacity .6s var(--ease); }
 .xcard__body { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: clamp(20px, 2.2vw, 32px); display: grid; justify-items: start; gap: 10px; }
@@ -328,14 +333,17 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
 .xcard__body { min-width: 0; }
 .xcard__tag { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--lime); color: var(--lime); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   background: rgba(7, 32, 26, .35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-.xcard__more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s var(--ease); }
+.xcard__more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .8s var(--xease); }
 .xcard__more > div { overflow: hidden; }
-.xcard__more p { max-width: 38ch; color: var(--on-dark); opacity: 0; transform: translateY(8px); transition: opacity .4s ease, transform .6s var(--ease); }
+.xcard__more p { max-width: 38ch; color: var(--on-dark); opacity: 0; transform: translateY(12px); transition: opacity .35s ease, transform .6s var(--xease); }
 @media (hover: hover) and (min-width: 901px) {
-  .xcards:hover .xcard, .xcards:focus-within .xcard { flex-grow: .72; }
-  .xcards .xcard:hover, .xcards .xcard:focus-within { flex-grow: 1.85; }
+  /* :has() keeps the layout still while the pointer crosses the gap between two cards */
+  .xcards:has(.xcard:hover) .xcard, .xcards:focus-within .xcard { flex-grow: .72; }
+  .xcards:has(.xcard:hover) .xcard:hover, .xcards:focus-within .xcard:focus-within { flex-grow: 1.85; }
+  /* fixed line length: the text doesn't re-wrap while the card widens */
+  .xcard__more p { width: 34ch; }
   .xcard:hover .xcard__more, .xcard:focus-within .xcard__more { grid-template-rows: 1fr; }
-  .xcard:hover .xcard__more p, .xcard:focus-within .xcard__more p { opacity: 1; transform: none; transition-delay: .18s; }
+  .xcard:hover .xcard__more p, .xcard:focus-within .xcard__more p { opacity: 1; transform: none; transition: opacity .6s ease .3s, transform .8s var(--xease) .25s; }
 }
 /* touch / narrow screens: description always visible, cards stack */
 @media (hover: none), (max-width: 900px) {
@@ -427,6 +435,30 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
 .event__details dd { font-weight: 600; margin-top: 4px; }
 .event__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
+/* open event: dark card with lime accents */
+.event { position: relative; border-radius: 0; transition: background-color .45s var(--ease), padding .45s var(--ease), border-radius .45s var(--ease), box-shadow .45s var(--ease), margin .45s var(--ease); }
+.event.is-open { background: var(--deep); color: #fff; border-radius: var(--r-xl); border-bottom-color: transparent;
+  padding-inline: clamp(16px, 2.6vw, 36px); margin-block: 12px; box-shadow: 0 30px 60px -30px rgba(7, 32, 26, .55); }
+.event:has(+ .event.is-open) { border-bottom-color: transparent; }
+.event.is-open .event__date { background: var(--lime); color: var(--ink); transform: none; }
+.event.is-open .event__date span { color: var(--forest); }
+.event.is-open .event__date--tbc { background: transparent; color: var(--lime); border-color: var(--lime); }
+.event.is-open .event__main p { color: var(--on-dark); }
+.event.is-open .status { color: var(--on-dark-muted); }
+.event.is-open .status--open { color: var(--lime); }
+.event.is-open .status--open .dot { background: var(--lime); animation-name: pulse-lime; }
+.event.is-open .event__toggle { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+.event.is-open .event__toggle:hover { background: var(--lime-hover); border-color: var(--lime-hover); }
+.event.is-open .event__details dl { background: rgba(255, 255, 255, .05); border-color: var(--line-dark); }
+.event.is-open .event__details dt { color: var(--lime); }
+.event.is-open .event__details dd { color: #fff; }
+.event.is-open .btn--forest { --bg: var(--lime); --fg: var(--ink); }
+.event.is-open .btn--forest:hover { --bg: var(--lime-hover); }
+.event.is-open .btn--outline { --fg: #fff; border-color: rgba(255, 255, 255, .35); }
+.event.is-open .btn--outline:hover { --bg: rgba(255, 255, 255, .08); border-color: #fff; }
+.event.is-open .link-arrow { color: var(--lime); }
+.event.is-open :focus-visible { outline-color: var(--lime); }
+
 /* projects */
 
 /* impact */
@@ -506,7 +538,7 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
    narrow 2:3 windows, each showing a slice of a photo 3× wider than the window
    that slides the opposite way as the track moves */
 .community { position: relative; background: var(--deep); color: #fff;
-  --card-h: clamp(300px, 50vh, 540px); --card-w: calc(var(--card-h) * .66); --edge: max(var(--gutter), (100vw - var(--max)) / 2); --start: max(var(--edge), 36vw); }
+  --card-h: clamp(300px, 50vh, 540px); --card-w: calc(var(--card-h) * .82); --edge: max(var(--gutter), (100vw - var(--max)) / 2); --start: max(var(--edge), 36vw); }
 .community__sticky { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 32px; padding-block: var(--section); overflow: hidden; }
 .community__intro { position: relative; z-index: 2; padding-inline: var(--edge); }
 .community__h2 { font-size: var(--fs-h2); font-weight: 650; letter-spacing: -.04em; line-height: 1.02; max-width: 12ch; margin-top: 12px; }
@@ -648,7 +680,7 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
 .contact-list .arrow { width: 22px; height: 22px; transition: transform .3s var(--ease); }
 .contact-list a:hover { padding-inline-start: 12px; color: var(--lime); }
 .contact-list a:hover .arrow { transform: translate(3px, -3px); }
-.footer__word { margin: clamp(64px, 9vw, 140px) 0 clamp(32px, 4vw, 56px); font-size: clamp(2.6rem, 11.5vw, 10rem); font-weight: 700; letter-spacing: -.06em; line-height: 1;
+.footer__word { margin: clamp(64px, 9vw, 140px) 0 clamp(32px, 4vw, 56px); font-size: clamp(2.8rem, 13vw, 12rem); font-weight: 700; letter-spacing: -.06em; line-height: 1;
   color: transparent; -webkit-background-clip: text; background-clip: text; padding-bottom: .06em;
   /* slow, soft colour drift through the brand greens (seamless loop: the gradient repeats itself) */
   background-image: linear-gradient(100deg, var(--lime) 0%, var(--mint) 25%, var(--yellow-lime) 50%, #9FF0C0 75%, var(--lime) 100%);
@@ -763,7 +795,7 @@ h3 { font-size: var(--fs-h3); font-weight: 700; line-height: 1.25; letter-spacin
   .step-card .ico { order: -1; margin-top: 0; flex: none; }
   .step-card__num { order: 2; margin-inline-start: auto; }
   .acc__panel { padding-inline-end: 0; }
-  .community { --card-h: min(62vh, 92vw); }
+  .community { --card-h: min(62vh, 96vw); }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
 }
 
@@ -775,7 +807,7 @@ html[lang="he"] { --font: "Heebo", Arial, system-ui, sans-serif; }
 /* Hebrew reads poorly with the tight Latin tracking and wide uppercase tracking; keep the ECS knockout as designed. */
 html[lang="he"] body *:not(text) { letter-spacing: 0 !important; }
 html[lang="he"] .hero__h1 { font-weight: 800; }
-html[lang="he"] .footer__word { font-size: clamp(2.2rem, 9vw, 8rem); }
+html[lang="he"] .footer__word { font-size: clamp(1.9rem, 9.6vw, 8.6rem); white-space: nowrap; }
 
 /* directional arrows point the reading way */
 [dir="rtl"] .ico--dir { transform: scaleX(-1); }

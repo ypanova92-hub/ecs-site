@@ -387,21 +387,18 @@
     btn.setAttribute('aria-expanded', String(open));
     $('.event__toggle-label', btn).textContent = T(open ? 'Hide details' : 'Event details');
     $('#' + btn.getAttribute('aria-controls')).hidden = !open;
+    btn.closest('.event').classList.toggle('is-open', open);
     if (pinned) requestAnimationFrame(layoutCommunity);
   }));
 
-  // Add to calendar (.ics download)
+  // Add to calendar: open a pre-filled Google Calendar event in a new tab (no file download)
   $$('[data-ics]').forEach(btn => btn.addEventListener('click', () => {
     const d = JSON.parse(btn.dataset.ics);
-    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//ECS Sapir//EN', 'BEGIN:VEVENT',
-      `UID:${Date.now()}@ecs-sapir`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
-      `DTSTART;TZID=Asia/Jerusalem:${d.start}`, `DTEND;TZID=Asia/Jerusalem:${d.end}`,
-      `SUMMARY:${d.title}`, `LOCATION:${d.location}`, `DESCRIPTION:${d.desc}`, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
-    a.download = 'ecs-entrepreneurship-dinner.ics';
-    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-    toast(T('Calendar file downloaded'));
+    const q = new URLSearchParams({
+      action: 'TEMPLATE', text: T(d.title), dates: `${d.start}/${d.end}`, ctz: 'Asia/Jerusalem',
+      location: T(d.location), details: T(d.desc),
+    });
+    window.open(`https://calendar.google.com/calendar/render?${q}`, '_blank', 'noopener');
   }));
 
   /* ---------- FAQ accordion (one open at a time) ---------- */
